@@ -1,4 +1,4 @@
-// Simple immediate fallback - show content after 1 second regardless of other logic
+// Simple immediate fallback - show content after 8 seconds regardless of other logic
 setTimeout(() => {
     const bootScreen = document.getElementById('bootScreen');
     const mainContent = document.getElementById('mainContent');
@@ -17,8 +17,8 @@ setTimeout(() => {
         homeSection.classList.add('active');
     }
     
-    console.log('Fallback: Content shown after 1 second');
-}, 1000);
+    console.log('Fallback: Content shown after 8 seconds');
+}, 8000);
 
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM loaded, initializing boot screen...');
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const bootTimer = setTimeout(() => {
         console.log('Boot timer triggered');
         hideBootScreen();
-    }, 4500); // Show boot screen for 4.5 seconds
+    }, 7000); // Show boot screen for 7 seconds to let animations complete
     
     // Allow user to skip boot screen by clicking or pressing any key
     if (bootScreen) {

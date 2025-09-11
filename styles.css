@@ -12,7 +12,7 @@
     align-items: center;
     z-index: 9999;
     transition: opacity 0.5s ease, visibility 0.5s ease;
-    animation: autoHide 0.5s ease 5.5s both;
+    animation: autoHide 0.5s ease 7.5s both;
 }
 
 @keyframes autoHide {
@@ -110,7 +110,7 @@
     height: 100%;
     background: linear-gradient(90deg, #ffffff, #e3f2fd, #ffffff);
     border-radius: 2px;
-    animation: loadingProgress 3s ease-in-out 1.2s forwards;
+    animation: loadingProgress 4s ease-in-out 1.5s forwards;
     transform: translateX(-100%);
 }
 
@@ -139,7 +139,7 @@
     transform: translateX(-50%);
     font-size: 11px;
     opacity: 0.5;
-    animation: skipHintFadeIn 1s ease-out 4s both;
+    animation: skipHintFadeIn 1s ease-out 6s both;
     cursor: pointer;
 }
 
@@ -300,7 +300,7 @@
 }
 
 .main-content {
-    animation: forceShow 0.5s ease 6s both;
+    animation: forceShow 0.5s ease 8.5s both;
 }
 
 /* 8-bit Monochrome Style Reset */
