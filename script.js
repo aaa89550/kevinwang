@@ -1,4 +1,79 @@
+// Simple immediate fallback - show content after 1 second regardless of other logic
+setTimeout(() => {
+    const bootScreen = document.getElementById('bootScreen');
+    const mainContent = document.getElementById('mainContent');
+    
+    if (bootScreen) {
+        bootScreen.style.display = 'none';
+    }
+    if (mainContent) {
+        mainContent.style.opacity = '1';
+        mainContent.style.visibility = 'visible';
+    }
+    
+    // Also ensure home section is active
+    const homeSection = document.getElementById('home');
+    if (homeSection) {
+        homeSection.classList.add('active');
+    }
+    
+    console.log('Fallback: Content shown after 1 second');
+}, 1000);
+
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded, initializing boot screen...');
+    
+    // Boot Screen Animation
+    const bootScreen = document.getElementById('bootScreen');
+    const mainContent = document.getElementById('mainContent');
+    
+    console.log('Boot screen element:', bootScreen);
+    console.log('Main content element:', mainContent);
+    
+    // Initialize first section as active
+    const homeSection = document.getElementById('home');
+    if (homeSection) {
+        homeSection.classList.add('active');
+        console.log('Home section activated');
+    }
+    
+    // Function to hide boot screen
+    function hideBootScreen() {
+        console.log('Hiding boot screen...');
+        if (bootScreen) {
+            bootScreen.style.display = 'none';
+        }
+        if (mainContent) {
+            mainContent.style.opacity = '1';
+            mainContent.style.visibility = 'visible';
+        }
+        console.log('Boot screen hidden, main content shown');
+    }
+    
+    // Boot sequence timing
+    console.log('Setting boot timer...');
+    const bootTimer = setTimeout(() => {
+        console.log('Boot timer triggered');
+        hideBootScreen();
+    }, 4500); // Show boot screen for 4.5 seconds
+    
+    // Allow user to skip boot screen by clicking or pressing any key
+    if (bootScreen) {
+        bootScreen.addEventListener('click', () => {
+            console.log('Boot screen clicked');
+            clearTimeout(bootTimer);
+            hideBootScreen();
+        });
+    }
+    
+    document.addEventListener('keydown', (e) => {
+        if (bootScreen && bootScreen.style.display !== 'none') {
+            console.log('Key pressed, skipping boot screen');
+            clearTimeout(bootTimer);
+            hideBootScreen();
+        }
+    });
+
     // Language toggle functionality
     const langToggle = document.getElementById('langToggle');
     const langCurrent = document.querySelector('.lang-current');
