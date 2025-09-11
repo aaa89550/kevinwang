@@ -8,6 +8,37 @@ document.addEventListener('DOMContentLoaded', function() {
     // Navigation functionality
     const navLinks = document.querySelectorAll('.nav-link');
     const sections = document.querySelectorAll('.section');
+    
+    // Mobile menu functionality
+    const navToggle = document.getElementById('navToggle');
+    const navContent = document.getElementById('navContent');
+
+    // Handle mobile menu toggle
+    if (navToggle && navContent) {
+        navToggle.addEventListener('click', function() {
+            navToggle.classList.toggle('active');
+            navContent.classList.toggle('active');
+            document.body.style.overflow = navContent.classList.contains('active') ? 'hidden' : '';
+        });
+        
+        // Close menu when clicking on links
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                navToggle.classList.remove('active');
+                navContent.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!navToggle.contains(e.target) && !navContent.contains(e.target)) {
+                navToggle.classList.remove('active');
+                navContent.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    }
 
     // Handle navigation clicks
     navLinks.forEach(link => {
@@ -30,20 +61,26 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Language toggle
-    langToggle.addEventListener('click', function() {
-        isEnglish = !isEnglish;
-        
-        if (isEnglish) {
-            langCurrent.textContent = 'EN';
-            langAlt.textContent = '中';
-            updateLanguage('en');
-        } else {
-            langCurrent.textContent = '中';
-            langAlt.textContent = 'EN';
-            updateLanguage('zh');
-        }
-    });
+    // Language toggle functionality (currently disabled)
+    if (langToggle) {
+        langToggle.addEventListener('click', function() {
+            // Language switching functionality disabled for now
+            // Uncomment the code below to re-enable bilingual support
+            /*
+            isEnglish = !isEnglish;
+            
+            if (isEnglish) {
+                langCurrent.textContent = 'EN';
+                langAlt.textContent = '中';
+                updateLanguage('en');
+            } else {
+                langCurrent.textContent = '中';
+                langAlt.textContent = 'EN';
+                updateLanguage('zh');
+            }
+            */
+        });
+    }
 
     function updateLanguage(lang) {
         const elements = document.querySelectorAll('[data-en][data-zh]');

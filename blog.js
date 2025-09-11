@@ -95,7 +95,8 @@ class BlogManager {
         const blogContainer = document.querySelector('.blog-posts');
         if (!blogContainer) return;
 
-        const currentLang = document.querySelector('.lang-current').textContent === 'EN' ? 'en' : 'zh';
+        // Default to English (language switching disabled)
+        const currentLang = 'en';
         
         blogContainer.innerHTML = this.posts.map(post => `
             <article class="blog-post" data-slug="${post.slug}">
@@ -128,7 +129,8 @@ class BlogManager {
         const post = this.getPostBySlug(slug);
         if (!post) return;
 
-        const currentLang = document.querySelector('.lang-current').textContent === 'EN' ? 'en' : 'zh';
+        // Default to English (language switching disabled)
+        const currentLang = 'en';
         
         // Create modal for full post
         const modal = document.createElement('div');
@@ -267,7 +269,9 @@ document.addEventListener('DOMContentLoaded', function() {
     blogManager = new BlogManager();
     blogManager.renderBlogPosts();
     
-    // Update blog posts when language changes
+    // Language switching functionality disabled for now
+    // Uncomment below to re-enable bilingual support
+    /*
     const originalUpdateLanguage = window.updateLanguage;
     if (typeof originalUpdateLanguage === 'function') {
         window.updateLanguage = function(lang) {
@@ -275,6 +279,7 @@ document.addEventListener('DOMContentLoaded', function() {
             blogManager.updateLanguage();
         };
     }
+    */
 });
 
 // Admin functions for adding posts (for development/content management)
