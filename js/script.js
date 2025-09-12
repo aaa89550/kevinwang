@@ -1,6 +1,7 @@
 // DOM Elements
 const navLinks = document.querySelectorAll('.nav-links a');
 const sections = document.querySelectorAll('.section');
+const logoLink = document.querySelector('.logo a');
 
 // Initialize page
 document.addEventListener('DOMContentLoaded', function() {
@@ -21,6 +22,18 @@ document.addEventListener('DOMContentLoaded', function() {
             history.pushState(null, null, `#${targetSection}`);
         });
     });
+    
+    // Add click event listener to logo
+    if (logoLink) {
+        logoLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            showSection('about');
+            updateActiveNavLink('about');
+            
+            // Update URL hash
+            history.pushState(null, null, '#about');
+        });
+    }
     
     // Handle browser back/forward buttons
     window.addEventListener('popstate', function() {
