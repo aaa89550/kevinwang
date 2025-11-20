@@ -83,6 +83,7 @@ body {
     position: static;           
     border-bottom: none;       
     transition: none;
+    cursor: pointer;
 }
 
 .nav-links li a:hover,
@@ -151,7 +152,6 @@ p {
 
 em {
     font-style: italic;
-    color: #000;
 }
 
 strong {
@@ -464,15 +464,16 @@ a {
     gap: 8px;
     text-align: center;
     min-width: 140px;
+    cursor: pointer; 
 }
 
 .contact-item:hover {
-    opacity: 0.7;
+    opacity: 0.8;
 }
 
 .email-contact {
     margin-bottom: 0;
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
 .email-contact span {
