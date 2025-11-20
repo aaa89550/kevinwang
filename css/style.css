@@ -13,11 +13,6 @@ body {
     font-size: 17px;
 }
 
-/* Paragraph spacing */
-p {
-    margin-bottom: 1.2em;
-}
-
 /* Navigation */
 .navigation {
     position: fixed;
@@ -78,36 +73,22 @@ p {
 }
 
 .nav-links li a {
-    text-decoration: none;
-    color: #333;
+    font-family: "Times New Roman", Times, serif;
+    text-decoration: underline;
+    color: #0000EE;             
     font-weight: 400;
-    font-size: 14px;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    transition: color 0.3s ease;
-    position: relative;
+    font-size: 18px;            
+    letter-spacing: 0;
+    text-transform: none;
+    position: static;           
+    border-bottom: none;       
+    transition: none;
 }
 
 .nav-links li a:hover,
 .nav-links li a.active {
-    color: #000;
-}
-
-.nav-links li a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 1px;
-    bottom: -4px;
-    left: 0;
-    background-color: #000;
-    transition: width 0.3s ease;
-}
-
-.nav-links li a:hover::after,
-.nav-links li a.active::after {
-    width: 100%;
-}
+    color: #0000EE;        /* same blue as normal */
+    text-decoration: underline;
 
 /* Main content */
 .main-content {
@@ -179,33 +160,10 @@ strong {
 
 /* Links */
 a {
-    color: #000;
-    text-decoration: none;
-    border-bottom: 1px solid #ccc;
-    transition: border-bottom-color 0.3s ease;
-}
-
-a:hover {
-    border-bottom-color: #000;
-}
-
-a:visited {
-    color: #333;
-}
-
-/* External links in work items */
-.work-item a,
-.event-item a,
-.project-item a,
-.press-item a {
-    border-bottom: 1px solid #ddd;
-}
-
-.work-item a:hover,
-.event-item a:hover,
-.project-item a:hover,
-.press-item a:hover {
-    border-bottom-color: #000;
+  color: #0000EE;
+    text-decoration: underline;
+    border-bottom: none;
+    transition: none;
 }
 
 /* Content sections */
