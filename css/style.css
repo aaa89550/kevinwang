@@ -80,6 +80,7 @@ body {
 .nav-links li,
 .nav-links li * {
     cursor: pointer !important;
+}
 
 .nav-links li a {
     font-family: "Times New Roman", Times, serif;
