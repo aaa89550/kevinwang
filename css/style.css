@@ -10,7 +10,7 @@ body {
     line-height: 1.65;
     color: #333;
     background-color: #fff;
-    font-size: 17px;
+    font-size: 18px;
 }
 
 /* Navigation */
@@ -63,7 +63,6 @@ body {
     border: 2px solid #000;
     border-radius: 4px;
     background-color: transparent;
-    transition: all 0.3s ease;
 }
 
 .logo a:hover .logo-kw {
@@ -87,7 +86,7 @@ body {
     text-decoration: underline;
     color: #0000EE;             
     font-weight: 400;
-    font-size: 18px;            
+    font-size: 19px;            
     letter-spacing: 0;
     text-transform: none;
     position: static;           
