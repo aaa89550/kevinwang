@@ -165,6 +165,7 @@ a {
     text-decoration: underline;
     border-bottom: none;
     transition: none;
+    cursor: pointer; 
 }
 
 /* Content sections */
