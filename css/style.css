@@ -89,6 +89,7 @@ body {
 .nav-links li a.active {
     color: #0000EE;        /* same blue as normal */
     text-decoration: underline;
+}
 
 /* Main content */
 .main-content {
