@@ -46,7 +46,6 @@ button, a { -webkit-tap-highlight-color: rgba(21, 63, 145, 0.12); }
     border: 0;
     cursor: pointer;
 }
-.name-glyph:hover { background: #e5edf4; }
 .name-glyph-character {
     position: absolute;
     inset: 0;
@@ -58,8 +57,8 @@ button, a { -webkit-tap-highlight-color: rgba(21, 63, 145, 0.12); }
 }
 .name-glyph-parts { position: absolute; inset: 0; width: 76px; height: 48px; opacity: 0; transition: opacity 480ms ease; }
 .name-glyph-parts g { transform-box: fill-box; transform-origin: center; transition: transform 480ms ease; }
-.name-glyph-parts .hatchet { transform: translateX(7px) scale(.85); }
-.name-glyph-parts .mouth { transform: translateX(-7px) scale(.85); }
+.name-glyph-parts .hatchet { transform: translateX(-7px) scale(.85); }
+.name-glyph-parts .mouth { transform: translateX(7px) scale(.85); }
 .name-glyph.is-open .name-glyph-character { opacity: 0; filter: blur(4px); transform: scale(.94); }
 .name-glyph.is-open .name-glyph-parts { opacity: 1; }
 .name-glyph.is-open .name-glyph-parts g { transform: none; }
@@ -84,7 +83,7 @@ strong { font-weight: 600; }
 .about-content { display: flex; gap: 2.5rem; align-items: flex-start; }
 .profile-image { flex-shrink: 0; width: 280px; }
 .profile-image img { display: block; width: 100%; height: auto; border: 1px solid #a5b3c2; }
-.about-text { flex: 1; min-width: 0; }
+.about-text { flex: 1; min-width: 0; font-size: calc(1rem + 2pt); }
 .about-text p:last-child { margin-bottom: 0; }
 .work-item { margin-bottom: 1.3rem; padding-bottom: 1.1rem; border-bottom: 1px dotted #cbd4df; }
 .work-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
@@ -101,7 +100,6 @@ strong { font-weight: 600; }
 .contact-icon { width: 24px; height: 24px; flex-shrink: 0; }
 .social-contact .contact-icon { width: 32px; height: 32px; }
 .contact-value, .email-contact span { font-size: 1rem; overflow-wrap: anywhere; }
-.site-note { margin: 18px 0 0; color: #53647a; font: 12px/1.5 "Courier New", monospace; }
 @media (max-width: 768px) {
     .navigation, .main-content, .footer { width: calc(100% - 28px); }
     .navigation { top: 10px; margin-top: 18px; padding: 8px 16px; }
