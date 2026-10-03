@@ -1,59 +1,55 @@
-/* A quiet personal page, with a little of the early web. */
+/* One sky, quiet reading, and a few familiar old buttons. */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { color-scheme: light; }
 body {
     font-family: "Times New Roman", Times, serif;
     font-size: 18px;
-    line-height: 1.65;
-    color: #292d33;
+    line-height: 1.7;
+    color: #202b38;
     min-height: 100vh;
+    overflow-x: clip;
     background: #91bcda url("../images/clouds.png") center center / cover fixed;
 }
 a { color: #0000ee; text-decoration: underline; text-underline-offset: 2px; }
 a:hover { color: #153f91; }
 a:focus-visible, button:focus-visible { outline: 2px solid #153f91; outline-offset: 4px; }
-button, a { -webkit-tap-highlight-color: rgba(21, 63, 145, 0.12); }
+button, a { -webkit-tap-highlight-color: rgba(21, 63, 145, .12); }
 .navigation, .main-content, .footer {
     width: calc(100% - 48px);
-    max-width: 960px;
+    max-width: 1160px;
     margin-right: auto;
     margin-left: auto;
-    border: 1px solid #8094aa;
-}
-.navigation {
-    position: relative;
-    top: auto;
-    z-index: 10;
-    margin-top: 32px;
-    margin-bottom: 20px;
-    padding: 10px 28px;
     background: transparent;
     border: 0;
+    box-shadow: none;
 }
-.nav-container { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-.nav-links { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 25px; list-style: none; }
-.nav-links a { font-size: 20px; font-weight: 600; padding: 4px 0; display: inline-block; text-shadow: 0 1px 2px rgba(255, 255, 255, .7); }
-.nav-links a.active { color: #1b3559; text-decoration-thickness: 3px; }
-.name-glyph {
-    position: relative;
-    display: block;
-    width: 76px;
-    height: 48px;
-    flex-shrink: 0;
-    color: #22364d;
-    background: transparent;
-    border: 0;
-    cursor: pointer;
+.navigation { position: relative; z-index: 2; margin-top: 32px; margin-bottom: 20px; padding: 10px 48px; }
+.nav-container { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.nav-links { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; list-style: none; }
+.nav-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 7px 16px;
+    font: bold 17px/1.2 "Courier New", monospace;
+    color: #151923;
+    text-decoration: none;
+    background: #c7cbd0;
+    border: 2px solid;
+    border-color: #fff #46505b #46505b #fff;
+    box-shadow: 1px 1px 0 #202733, inset -1px -1px 0 #89929d, inset 1px 1px 0 #e9eef3;
+    border-radius: 2px;
 }
-.name-glyph-character {
-    position: absolute;
-    inset: 0;
-    display: grid;
-    place-items: center;
-    font-family: "Songti TC", "Noto Serif CJK TC", "PMingLiU", serif;
-    font-size: 32px;
-    transition: opacity 360ms ease, filter 360ms ease, transform 360ms ease;
+.nav-links a:hover { background: #dce9f2; }
+.nav-links a:active, .nav-links a.active {
+    background: #b8c7d5;
+    border-color: #46505b #edf3f8 #edf3f8 #46505b;
+    box-shadow: inset 1px 1px 0 #8193a6;
 }
+.nav-links a.active { text-decoration: underline; text-underline-offset: 3px; }
+.name-glyph { position: relative; display: block; width: 76px; height: 48px; flex-shrink: 0; color: #22364d; background: transparent; border: 0; cursor: pointer; }
+.name-glyph-character { position: absolute; top: 0; left: 14px; width: 48px; height: 48px; transition: opacity 360ms ease, filter 360ms ease, transform 360ms ease; }
 .name-glyph-parts { position: absolute; inset: 0; width: 76px; height: 48px; opacity: 0; transition: opacity 480ms ease; }
 .name-glyph-parts g { transform-box: fill-box; transform-origin: center; transition: transform 480ms ease; }
 .name-glyph-parts .hatchet { transform: translateX(-7px) scale(.85); }
@@ -61,62 +57,75 @@ button, a { -webkit-tap-highlight-color: rgba(21, 63, 145, 0.12); }
 .name-glyph.is-open .name-glyph-character { opacity: 0; filter: blur(4px); transform: scale(.94); }
 .name-glyph.is-open .name-glyph-parts { opacity: 1; }
 .name-glyph.is-open .name-glyph-parts g { transform: none; }
-.main-content { background: rgba(255, 255, 255, .96); }
-.container { max-width: 960px; margin: 0 auto; padding: 44px 48px; }
+.container { position: relative; max-width: calc(60ch + 96px); margin: 0 auto; padding: 44px 48px; }
 .section { display: none; }
 .section.active { display: block; }
-.page-title {
-    font-size: 2.65rem;
-    font-weight: 400;
-    color: #202d3e;
-    margin-bottom: 2rem;
-    padding-bottom: 14px;
-    border-bottom: 1px dotted #a5b3c2;
-    letter-spacing: -.02em;
+.section > .container, .footer > .container { isolation: isolate; }
+/* The extra reach and blur let the veil dissolve outside the reading area. */
+.section > .container::before, .footer > .container::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    pointer-events: none;
+    inset: -65px -85px;
+    background: linear-gradient(90deg, transparent, rgba(249, 252, 255, .93) 15%, rgba(249, 252, 255, .93) 85%, transparent);
+    -webkit-mask-image: linear-gradient(transparent, #000 90px, #000 calc(100% - 90px), transparent);
+    mask-image: linear-gradient(transparent, #000 90px, #000 calc(100% - 90px), transparent);
+    filter: blur(24px);
 }
+.page-title { font-size: 2.65rem; font-weight: 400; color: #202d3e; margin-bottom: 2rem; letter-spacing: -.02em; }
 h2 { font-size: 1.5rem; font-weight: 400; color: #202d3e; margin: 2.5rem 0 1.25rem; }
 p { margin-bottom: 1.5rem; line-height: 1.7; }
 em { font-style: italic; }
 strong { font-weight: 600; }
-.content { font-size: 1rem; }
-.about-content { display: flex; gap: 2.5rem; align-items: flex-start; }
-.profile-image { flex-shrink: 0; width: 280px; }
-.profile-image img { display: block; width: 100%; height: auto; border: 1px solid #a5b3c2; }
-.about-text { flex: 1; min-width: 0; font-size: calc(1rem + 2pt); }
+.content { font-size: 18px; max-width: 60ch; }
+#about .container { max-width: calc(60ch + 396px); font-size: calc(1rem + 2pt); }
+#about .content { max-width: none; }
+.about-content { display: flex; justify-content: center; gap: 36px; align-items: flex-start; }
+.profile-image { flex-shrink: 0; width: clamp(180px, 22vw, 260px); }
+.profile-image img { display: block; width: 100%; height: auto; }
+.about-text { flex: 0 1 60ch; min-width: 0; max-width: 60ch; font-size: calc(1rem + 2pt); }
 .about-text p:last-child { margin-bottom: 0; }
-.work-item { margin-bottom: 1.3rem; padding-bottom: 1.1rem; border-bottom: 1px dotted #cbd4df; }
-.work-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-.work-item p { margin-bottom: 0; line-height: 1.6; }
+.work-item { margin-bottom: 1.6rem; }
+.work-item:last-child { margin-bottom: 0; }
+.work-item p { margin-bottom: 0; }
 .translation-list, .pitching-list, .reviews-list, .events-list, .editorial-list { margin-bottom: 2rem; }
-.footer { margin-top: 20px; margin-bottom: 32px; background: rgba(248, 250, 252, .97); }
-.footer .container { padding: 24px 32px; }
+.footer { margin-top: 32px; margin-bottom: 32px; }
+.footer .container { max-width: 700px; padding: 24px 32px; }
+.footer > .container::before { opacity: .75; }
 .footer-content { text-align: center; }
 .footer h2 { font-size: 1.2rem; margin: 0 0 16px; }
 .contact-links { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 24px 40px; }
-.contact-item { display: flex; flex-direction: column; align-items: center; justify-content: center; color: #292d33; text-decoration: none; padding: 8px; gap: 8px; min-width: 140px; font-size: 1rem; }
+.contact-item { display: flex; flex-direction: column; align-items: center; justify-content: center; color: #202b38; text-decoration: none; padding: 8px; gap: 8px; min-width: 140px; font-size: 1rem; }
 .contact-item:hover { color: #153f91; }
 .contact-item:hover span, .contact-item:hover .contact-value { text-decoration: underline; }
 .contact-icon { width: 24px; height: 24px; flex-shrink: 0; }
 .social-contact .contact-icon { width: 32px; height: 32px; }
 .contact-value, .email-contact span { font-size: 1rem; overflow-wrap: anywhere; }
-@media (max-width: 768px) {
+@media (max-width: 900px) {
+    .navigation { padding-right: 26px; padding-left: 26px; }
+    .nav-links { justify-content: flex-end; }
+    .nav-links a { font-size: 16px; padding: 7px 12px; }
+    .container { padding: 30px 26px; max-width: calc(60ch + 52px); }
+    .about-content { gap: 26px; }
+}
+@media (max-width: 700px) {
     .navigation, .main-content, .footer { width: calc(100% - 28px); }
-    .navigation { margin-top: 18px; padding: 8px 16px; }
+    .navigation { margin-top: 18px; padding: 8px 12px; }
     .nav-container { gap: 12px; }
-    .nav-links { gap: 4px 18px; justify-content: flex-end; }
-    .nav-links a { font-size: 18px; }
-    .container { padding: 30px 26px; }
+    .nav-links { gap: 8px; }
+    .nav-links a { font-size: 15px; padding: 7px 10px; }
     .about-content { flex-direction: column; gap: 24px; }
+    .about-text { flex-basis: auto; }
     .profile-image { width: min(250px, 100%); }
     .page-title { font-size: 2.3rem; }
+    .section > .container::before { inset: -55px -20px; background: linear-gradient(90deg, transparent, rgba(249, 252, 255, .93) 9%, rgba(249, 252, 255, .93) 91%, transparent); filter: blur(15px); }
     .footer { margin-bottom: 18px; }
 }
 @media (max-width: 480px) {
-    .navigation { position: relative; top: auto; padding: 6px 10px; }
-    .nav-container { gap: 6px; }
-    .nav-links { gap: 0 12px; }
-    .nav-links a { font-size: 16px; min-height: 44px; display: flex; align-items: center; }
-    .container { padding: 24px 20px; }
+    .nav-container { align-items: flex-start; gap: 6px; }
+    .nav-links a { font-size: 14px; padding: 7px 8px; }
+    .container { padding: 24px 16px; }
     .page-title { font-size: 2rem; }
     .footer .container { padding: 22px 16px; }
     .contact-links { gap: 16px; }
@@ -127,10 +136,10 @@ strong { font-weight: 600; }
 }
 @media print {
     body { background: #fff; color: #000; font-size: 12px; }
-    .navigation, .footer { display: none; }
-    .main-content { width: 100%; max-width: none; border: 0; background: #fff; }
+    .navigation, .footer, .container::before { display: none; }
+    .main-content { width: 100%; max-width: none; }
     .section { display: block; break-before: page; }
     .section:first-child { break-before: auto; }
-    .container { padding: 0; }
+    .container { max-width: none; padding: 0; }
     .page-title { font-size: 2rem; }
 }
