@@ -1,4 +1,4 @@
-/* One sky, quiet reading, and a few familiar old buttons. */
+/* Words in the sky, with a few familiar old buttons. */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { color-scheme: light; }
 body {
@@ -7,7 +7,6 @@ body {
     line-height: 1.7;
     color: #202b38;
     min-height: 100vh;
-    overflow-x: clip;
     background: #91bcda url("../images/clouds.png") center center / cover fixed;
 }
 a { color: #0000ee; text-decoration: underline; text-underline-offset: 2px; }
@@ -60,19 +59,6 @@ button, a { -webkit-tap-highlight-color: rgba(21, 63, 145, .12); }
 .container { position: relative; max-width: calc(60ch + 96px); margin: 0 auto; padding: 44px 48px; }
 .section { display: none; }
 .section.active { display: block; }
-.section > .container, .footer > .container { isolation: isolate; }
-/* The extra reach and blur let the veil dissolve outside the reading area. */
-.section > .container::before, .footer > .container::before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    pointer-events: none;
-    inset: -65px -85px;
-    background: linear-gradient(90deg, transparent, rgba(249, 252, 255, .93) 15%, rgba(249, 252, 255, .93) 85%, transparent);
-    -webkit-mask-image: linear-gradient(transparent, #000 90px, #000 calc(100% - 90px), transparent);
-    mask-image: linear-gradient(transparent, #000 90px, #000 calc(100% - 90px), transparent);
-    filter: blur(24px);
-}
 .page-title { font-size: 2.65rem; font-weight: 400; color: #202d3e; margin-bottom: 2rem; letter-spacing: -.02em; }
 h2 { font-size: 1.5rem; font-weight: 400; color: #202d3e; margin: 2.5rem 0 1.25rem; }
 p { margin-bottom: 1.5rem; line-height: 1.7; }
@@ -92,7 +78,6 @@ strong { font-weight: 600; }
 .translation-list, .pitching-list, .reviews-list, .events-list, .editorial-list { margin-bottom: 2rem; }
 .footer { margin-top: 32px; margin-bottom: 32px; }
 .footer .container { max-width: 700px; padding: 24px 32px; }
-.footer > .container::before { opacity: .75; }
 .footer-content { text-align: center; }
 .footer h2 { font-size: 1.2rem; margin: 0 0 16px; }
 .contact-links { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 24px 40px; }
@@ -119,7 +104,6 @@ strong { font-weight: 600; }
     .about-text { flex-basis: auto; }
     .profile-image { width: min(250px, 100%); }
     .page-title { font-size: 2.3rem; }
-    .section > .container::before { inset: -55px -20px; background: linear-gradient(90deg, transparent, rgba(249, 252, 255, .93) 9%, rgba(249, 252, 255, .93) 91%, transparent); filter: blur(15px); }
     .footer { margin-bottom: 18px; }
 }
 @media (max-width: 480px) {
@@ -136,7 +120,7 @@ strong { font-weight: 600; }
 }
 @media print {
     body { background: #fff; color: #000; font-size: 12px; }
-    .navigation, .footer, .container::before { display: none; }
+    .navigation, .footer { display: none; }
     .main-content { width: 100%; max-width: none; }
     .section { display: block; break-before: page; }
     .section:first-child { break-before: auto; }
