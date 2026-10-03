@@ -34,6 +34,5 @@ document.addEventListener('DOMContentLoaded', () => {
         glyph.setAttribute('aria-label', open
             ? 'Hatchet and mouth: restore 可'
             : '可: reveal a hatchet and a mouth');
-        glyph.title = open ? 'Click to put 可 back together' : '可 · click to take it apart';
     });
 });
